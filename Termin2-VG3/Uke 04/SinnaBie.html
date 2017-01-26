@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Den onde bien</title>
+    <style>
+        #flex {
+            display: flex;
+            height: 100vh;
+            position: fixed;
+            left: 0;
+            top:0;
+            width: 100vw;
+
+
+        }
+        #flex > img {
+            flex: 1;
+            margin: 10vh 10vw;
+
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="flex">
+    <img src="uke04bilder/blomst.svg" id="Blomst">
+    <img src="uke04bilder/EvilBee.svg" id="Bie">
+    <img src="uke04bilder/honning.svg" id="Honning">
+</div>
+<script>
+    let blomst = document.getElementById("Blomst");
+    let bie = document.getElementById("Bie");
+    let honning = document.getElementById("Honning");
+
+    let keyframes = [
+        {transform: "scale(1)", filter: "invert(0)"},
+        {transform: "scale(2.5)", filter: "invert(0)"},
+        {transform: "scale(4)", filter: "invert(100)"}
+    ];
+    let settings = {
+        duration: 4000,
+        fill: "forwards"
+    };
+
+    let animasjon = bie.animate(keyframes,settings);
+    animasjon.pause();
+
+    function voks() {
+
+        animasjon.playbackRate = 1;
+        animasjon.play();
+    }
+    function stopp(){
+        animasjon.pause();
+    }
+    function krymp() {
+        animasjon.playbackRate = -1;
+        animasjon.play();
+
+    }
+    animasjon.addEventListener("finish", function(){
+        bie.animate([
+            {transform: "scale(4) rotate(0)"},
+            {transform: "scale(1) rotate(360deg)"}
+        ],{
+            duration: 200,
+            fill:"forwards"
+        })
+    });
+
+    blomst.addEventListener("mousedown", voks);
+    blomst.addEventListener("touchstart", voks);
+    blomst.addEventListener("mouseup", stopp);
+    blomst.addEventListener("touchend", stopp);
+
+    honning.addEventListener("mousedown", krymp);
+    honning.addEventListener("touchstart", krymp);
+    honning.addEventListener("mouseup", stopp);
+    honning.addEventListener("touchend", stopp);
+
+
+</script>
+
+</body>
+</html>

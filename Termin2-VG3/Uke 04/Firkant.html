@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firkant</title>
+    <style>
+        #firkant {
+            width: 100px;
+            height: 50px;
+            background-color: royalblue;
+            margin: 100px auto;
+
+            transform: translateX(200px);
+        }
+    </style>
+</head>
+<body>
+
+    <div id="firkant"></div>
+
+    <script>
+        var firkant = document.getElementById("firkant");
+
+        var keyframes = [
+            {padding: "0"},
+            {padding: "100px"},
+            {padding: "500px"}
+        ];
+        var settings = {
+            duration: 1000,
+            iterations: Infinity,
+            delay: 500,
+            direction: "alternate"
+        }
+        var animasjon = firkant.animate(keyframes, settings);
+        animasjon.pause();
+
+        document.onclick = function() {
+            animasjon.play();
+        }
+
+        blomst.addEventListener("mousedown", voks);
+
+    </script>
+
+</body>
+</html>

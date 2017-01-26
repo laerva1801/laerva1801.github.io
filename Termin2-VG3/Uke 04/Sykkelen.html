@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Motorsykkel</title>
+    <style>
+        body {
+            overflow: hidden;
+        }
+        * {
+            margin: 0;
+        }
+        #container {
+            position: relative;
+            width: 100vw;
+            height: 400px;
+            overflow: hidden;
+        }
+        img {
+            position: absolute;
+            z-index: 3;
+        }
+
+        #bakhjul {
+            top: 93px;
+            z-index: 1;
+            transform-origin: center;
+        }
+
+        #forhjul {
+            top: 96px;
+            z-index: 2;
+            left: 130px;
+            transform-origin: center;
+        }
+
+        #boksen {
+            position: absolute;
+            top: 50px;
+           display: flex;
+        }
+
+        #boksen > img {
+            flex: 1;
+        }
+
+        #boksen2 {
+            position: absolute;
+            top: 50px;
+            display: flex;
+        }
+
+        #boksen2 > img {
+            flex: 1;
+        }
+
+        #bakhjul2 {
+            top: 94px;
+            z-index: 1;
+            left: -5px;
+            transform-origin: center;
+        }
+
+        #forhjul2 {
+            top: 96px;
+            z-index: 2;
+            left: 123px;
+            transform-origin: center;
+        }
+
+        #sykkel2 {
+            transform: scaleX(-1);
+        }
+
+        #pilen {
+            transform: scale(0.1);
+            position: absolute;
+            left: -210px;
+            top: 50px;
+        }
+
+        #pilen2 {
+            transform: scale(-0.1);
+            position: absolute;
+            left: -210px;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+<div id="boksen">
+
+    <img src="sykkel/sykkelen.png" id="sykkel">
+    <img src="sykkel/bakhjul.png" id="bakhjul">
+    <img src="sykkel/forhjul.png" id="forhjul">
+    <img src="sykkel/arrow.png" id="pilen">
+
+</div>
+
+<div id="boksen2">
+
+<img src="sykkel/sykkelen.png" id="sykkel2">
+    <img src="sykkel/bakhjul.png" id="bakhjul2">
+    <img src="sykkel/forhjul.png" id="forhjul2">
+    <img src="sykkel/arrow.png" id="pilen2">
+
+</div>
+
+</div>
+    <script>
+
+        var sykkel = document.getElementById("sykkel");
+        var bakhjul = document.getElementById("bakhjul");
+        var forhjul = document.getElementById("forhjul");
+        var boksen = document.getElementById("boksen");
+        var sykkel2 = document.getElementById("sykkel2");
+        var bakhjul2 = document.getElementById("bakhjul2");
+        var forhjul2 = document.getElementById("forhjul2");
+
+
+
+        let keyframes = [
+            {transform: "rotate(0deg)"},
+            {transform: "rotate(360deg)"}
+
+        ];
+        let keyframes5 = [
+            {transform: "rotate(0deg)"},
+            {transform: "rotate(-360deg)"}
+
+        ];
+        let settings = {
+            duration: 1000,
+            iterations: Infinity,
+        };
+
+        let keyframes2 = [
+            {left: "-250px"},
+            {left: "800px"},
+            {left: "800px", scaleX: "-1"},
+            {left: "800px", scaleX: "-1"}
+
+        ];
+        let settings2 = {
+            duration: 5500,
+            iterations: Infinity,
+        };
+
+        let keyframes3 = [
+            {left: "800px"},
+            {left: "800px"},
+            {left: "-250px", scaleX: "-1" },
+            {left: "-250px", scaleX: "-1" }
+
+        ];
+        let settings3 = {
+            duration: 5500,
+            iterations: Infinity,
+        };
+
+        let animasjon = bakhjul.animate(keyframes,settings);
+        let animasjon2 = forhjul.animate(keyframes,settings);
+        let animasjon3 = boksen.animate(keyframes2,settings2);
+        let animasjon4 = bakhjul2.animate(keyframes5,settings);
+        let animasjon5 = forhjul2.animate(keyframes5,settings);
+        let animasjon6 = boksen2.animate(keyframes3,settings3);
+        /*
+        function spinn() {
+            animasjon.playbackRate = 1;
+            animasjon.play();
+        }
+
+        function spinn2() {
+            animasjon2.playbackRate = 1;
+            animasjon2.play();
+        }
+
+       bakhjul.addEventListener("mousedown", spinn);
+        forhjul.addEventListener("mousedown", spinn2); */
+
+
+    </script>
+
+</body>
+</html>
