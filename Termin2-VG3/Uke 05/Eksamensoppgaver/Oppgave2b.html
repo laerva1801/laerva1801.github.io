@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Eksamensøving oppgave 2b</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.0/css/foundation-flex.css">
+    <style>
+        body {
+            max-width: 720px;
+            margin: auto;
+            padding: 10px;
+        }
+        #chart {
+            height: 300px;
+            background-color: darkorange;
+            display: flex;
+            align-items: flex-end;
+        }
+        #chart > div {
+          background-color: whitesmoke;
+            flex: 1;
+            margin: 4px;
+            height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Oppgave 2b</h1>
+    <h2>Velg type lovbrudd</h2>
+
+    <button id="btnPromille" class="button">Promillekjøring</button>
+    <button id="btnFart" class="button">Fartsgrenseovertredelse</button>
+    <hr>
+    <div id="chart">
+
+    </div>
+
+    <script>
+        var btnFart = document.getElementById("btnFart");
+        var btnPromille = document.getElementById("btnPromille");
+
+    var lovbruddene = new Map();
+        lovbruddene.set ("2002", {promille: 9631, fart: 17230} );
+        lovbruddene.set ("2003", {promille: 900, fart: 12340} );
+        lovbruddene.set ("2004", {promille: 7400, fart: 14000} );
+        lovbruddene.set ("2005", {promille: 9631, fart: 9000} );
+        lovbruddene.set ("2006", {promille: 4900, fart: 10232} );
+        lovbruddene.set ("2007", {promille: 5490, fart: 9863} );
+        lovbruddene.set ("2008", {promille: 9631, fart: 9863} );
+
+        function visDiagram() {
+
+
+            chart.innerHTML = "";
+            let knappeID = this.id;
+
+            if (knappeID === "btnPromille") {
+                for (let lovbrudd of
+                lovbruddene.values()) {
+                    chart.innerHTML += `
+                <div style = "height: ${lovbrudd.promille / 10000* 280}px">
+                            <p>${lovbrudd.promille} </p>
+                            </div>`
+                }
+            } else {
+                for (let lovbrudd of
+                lovbruddene.values()
+            )
+                {
+                    chart.innerHTML += `
+                <div style = "height: ${lovbrudd.fart / 10000* 170}px">
+                            <p>${lovbrudd.fart}</p>
+                            </div>`
+                }
+
+            }
+
+        }
+
+            btnPromille.addEventListener("click", visDiagram);
+            btnFart.addEventListener("click", visDiagram);
+
+    </script>
+
+</body>
+</html>

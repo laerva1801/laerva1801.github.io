@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UaTF-8">
+    <title>Oppgave 1</title>
+    <style>
+        #container {
+        display: flex;
+        }
+
+        #scene1 {
+            width: 600px;
+            height: 400px;
+            background-color: dodgerblue;
+            position: relative;
+        }
+
+        #isflak {
+            background-color: white;
+            width: 350px;
+            height: 270px;
+            position: relative;
+        }
+
+        #scene2 {
+            position: relative;
+        }
+
+        #scene2 > img {
+            width: 600px;
+            height: 400px;
+            position: absolute;
+        }
+
+        #tekst {
+            position: relative;
+            height: 200px;
+            width: 500px;
+            margin-left: 50px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1>Oppgave 1 eksamen</h1>
+    <audio src="Vedlegg/vannsilder.mp3" id="lyd" autoplay loop></audio>
+
+    <div id="container">
+    <div id="scene1">
+        <div id="isflak"></div>
+    </div>
+        <p id="tekst"></p>
+    </div>
+
+        <div id="scene2">
+            <img id="scene2Bilde" src="Vedlegg/reinlav.jpg">
+            <img id="scene2Bilde2" src="Vedlegg/issoleie.jpg">
+            <img id="scene2Bilde3" src="Vedlegg/fjellkrekling.jpg">
+        </div>
+
+
+    <script>
+        var container = document.getElementById("container");
+        var scene1 = document.getElementById("scene1");
+        var isflak = document.getElementById("isflak");
+        var scene2 = document.getElementById("scene2");
+        var scene2Bilde = document.getElementById("scene2Bilde");
+        var scene2Bilde2 = document.getElementById("scene2Bilde2");
+        var scene2Bilde3 = document.getElementById("scene2Bilde3");
+        var tekst = document.getElementById("tekst");
+
+
+
+
+        let keyframes = [
+            {backgroundColor: "white", transform: "rotate(2deg)", left: "-400px", top: "50px" },
+            {backgroundColor: "white", transform: "rotate(2deg)", left: "50px", top: "50px" },
+            {backgroundColor: "dodgerblue", transform: "rotate(20deg)", left: "170px", top: "70px"},
+            {backgroundColor: "dodgerblue", transform: "rotate(20deg)", left: "170px", top: "70px"}
+
+        ];
+        let settings = {
+            duration: 14000,
+            iterations: Infinity
+        };
+
+        let scene2frames = [
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "0"},
+            {opacity: "0"},
+            {opacity: "1"},
+            {opacity: "1"}
+        ];
+
+        let scene2settings = {
+            duration: 14000,
+            iterations: Infinity
+        };
+
+        let scene3frames = [
+            {opacity: "0"},
+            {opacity: "0"},
+            {opacity: "1"},
+            {opacity: "1"},
+            {opacity: "0"},
+            {opacity: "0"}
+        ];
+
+        let scene3settings = {
+            duration: 14000,
+            iterations: Infinity
+        };
+
+        let scene4frames = [
+            {opacity: "0"},
+            {opacity: "0"},
+            {opacity: "0"},
+            {opacity: "0.5"},
+            {opacity: "1"},
+            {opacity: "0"}
+        ];
+
+        let scene4settings = {
+            duration: 14000,
+            iterations: Infinity
+        };
+
+        let animasjon = isflak.animate(keyframes,settings);
+        let animasjonScene2 = scene2Bilde.animate(scene2frames, scene2settings);
+        let animasjonScene3 = scene2Bilde2.animate(scene3frames, scene3settings);
+        let animasjonScene4 = scene2Bilde3.animate(scene4frames, scene4settings);
+
+        function visInfo() {
+            tekst.innerHTML = "<b>Suksesjon:</b> Suksesjon er følge av plante- og dyrearter på en lokalitet gjennom tid. Et plantesamfunn forandres over tid ved at nye arter konkurrerer ut tidligere arter. Denne endringen kan gå raskt eller langsomt, alt etter planteartenes levetid. På nydannet mark (f.eks. etter tilbaketrekking av en isbre) finner en primærsuksesjon sted. Etablerte plantesamfunn kan gjennomgå sykliske endringer med sekundærsuksesjoner. I nordlige barskoger brenner skogen under naturlige forhold med jevne mellomrom. På brannflatene etablerer næringskrevende urter som geitrams seg, og etter hvert spirer ulike løvtrearter opp. Senere kommer bartrærne inn, og etter hundre til to hundre år kan det igjen være ren barskog på lokaliteten. Barskogen utgjør her et klimakssamfunn. (Kilde: SNL) "
+        }
+
+        scene1.onclick = visInfo;
+
+    </script>
+
+</body>
+</html>
