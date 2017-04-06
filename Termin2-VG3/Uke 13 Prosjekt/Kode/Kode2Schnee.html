@@ -51,10 +51,11 @@
         #mainSnus {
             position: relative;
             width: 200px;
-            top: 25%;
+            top: 7%;
             left: 25%;
             z-index: 3;
             transition: 0.2s;
+            transform: rotate(18deg);
         }
         #sunray {
             width: 300px;
@@ -112,20 +113,17 @@
 
 <body>
 
-<div id="snusContainer">
-    <img id="mainSnus" onclick="PengeClick(1); trykk();" src="../bilder/cookie1.png">
+<div id="snusContainer"> <!-- Dette definerer snusen man klikker på -->
+    <img id="mainSnus" onclick="PengeClick(1); trykk();" src="../bilder/schni2.png">
     <img id="sunray" src="../bilder/sunray.png">
-    <img class="miniCookies" id="miniCookie1" src="../bilder/cookie2.png">
-    <img class="miniCookies" id="miniCookie2"  src="../bilder/cookie2.png">
-    <img class="miniCookies" id="miniCookie3"  src="../bilder/cookie2.png">
-    <img class="miniCookies" id="miniCookie4"  src="../bilder/cookie2.png">
-    <img class="miniCookies" id="miniCookie5" src="../bilder/cookie2.png">
-    <img class="miniCookies" id="miniCookie6"  src="../bilder/cookie2.png">
+    <img class="miniCookies" id="miniCookie1" style="transform: rotate(-3deg)" src="../bilder/schni1.png">
+    <img class="miniCookies" id="miniCookie2" style="transform: rotate(8deg)"  src="../bilder/schni1.png">
+    <img class="miniCookies" id="miniCookie3" style="transform: rotate(20deg)"  src="../bilder/schni1.png">
+    <img class="miniCookies" id="miniCookie4" style="transform: rotate(1deg)"  src="../bilder/schni1.png">
+    <img class="miniCookies" id="miniCookie5" style="transform: rotate(76deg)" src="../bilder/schni1.png">
+    <img class="miniCookies" id="miniCookie6" style="transform: rotate(3deg)"  src="../bilder/schni1.png">
 
 </div>
-
-
-
 
 <div id="container1">
     <div class="arbeidere" id="arbeider1" onclick="addArbeider1(1)" >10</div>
@@ -350,7 +348,7 @@
         }
     };
 
-    var mainCookie = document.getElementById("mainSnus");
+    var mainSnus = document.getElementById("mainSnus");
 
     let keyframes = [
         {transform: "scale(1)" },
@@ -362,12 +360,12 @@
         iterations: 1
     };
 
-    let klikkAnimasjon = mainCookie.animate(keyframes, settings);
+    let klikkAnimasjon = mainSnus.animate(keyframes, settings);
 
     function trykk() {
         klikkAnimasjon.play();
     }
-
+    
 
 
 </script>
